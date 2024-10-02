@@ -4,6 +4,7 @@ import { Range } from 'react-date-range';
 import { formatISO } from 'date-fns';
 
 import useSearchModal from "../../hooks/useSearchModal";
+import { useNavigate } from 'react-router-dom'
 
 import Modal from "./Modal";
 import Calendar from "../inputs/Calendar";
@@ -23,6 +24,7 @@ function SearchModal() {
 
 
   const params = new URLSearchParams();
+  const router = useNavigate();
 
 
   const searchModal = useSearchModal();
@@ -64,21 +66,21 @@ const [step, setStep] = useState(STEPS.LOCATION);
 
 
     if (dateRange.startDate) {
-      updatedQuery.startDate = formatISO(dateRange.startDate);
+      currentQuery.startDate = formatISO(dateRange.startDate);
     }
 
     if (dateRange.endDate) {
-      updatedQuery.endDate = formatISO(dateRange.endDate);
+      currentQuery.endDate = formatISO(dateRange.endDate);
     }
 
     const url = qs.stringifyUrl({
       url: '/',
-      query: updatedQuery,
+      query: currentQuery,
     }, { skipNull: true });
 
     setStep(STEPS.LOCATION);
     searchModal.onClose();
-    router.push(url);
+   router(url);
   }, 
   [
     step, 

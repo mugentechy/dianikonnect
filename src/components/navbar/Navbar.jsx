@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 
 function Navbar() {
 const { currentUser } = useSelector((state) => state.currentUser)
+console.log(currentUser)
 
 
   return (
