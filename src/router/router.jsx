@@ -23,7 +23,7 @@ import { getCurrentUserAsync } from '../features/user/userActions'
 import useAuthListener from '../hooks/use-auth-listener'
 import { getListingsAsync } from "../features/listings/listingsActions";
 
-import Footer from  '../components/Footer'
+import Footer from  '../components/footer'
 
 
 function Router() {
