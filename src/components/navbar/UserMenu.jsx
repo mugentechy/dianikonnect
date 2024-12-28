@@ -91,184 +91,205 @@ const registerModal = useRegisterModal();
 
   return (
     <>
- <div className="relative">
-      <div className="flex flex-row items-center gap-3">
-
-              <div 
-         onClick={() => navigate('/')}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          Home
-        </div>
-
-
-             <div 
-        onClick={searchModal.onOpen}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          Search
-        </div>
-
-        <div 
-         onClick={() => navigate('/listings')}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          Listings
-        </div>
-
-                      <div 
-         onClick={() => navigate('/about')}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          About
-        </div>
-
-
-                      <div 
-         onClick={() => navigate('/contact')}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          Contact
-        </div>
-
-
-        <div 
-         onClick={toggleOpen}
-        className="
-          p-4
-          md:py-1
-          md:px-2
-          border-[1px] 
-          border-neutral-200 
-          flex 
-          flex-row 
-          items-center 
-          gap-3 
-          rounded-full 
-          cursor-pointer 
-          hover:shadow-md 
-          transition
-          "
-        >
-          <AiOutlineMenu />
-          <div className="hidden md:block">
-            <Avatar src={currentUser?.avatar_url} />
-          </div>
-        </div>
-      </div>
-      {isOpen && (
-        <div 
-          className="
-            absolute 
-            rounded-xl 
-            shadow-md
-            w-[40vw]
-            md:w-3/4 
-            bg-white 
-            overflow-hidden 
-            right-0 
-            top-12 
-            text-sm
-          "
-        >
-          <div className="flex flex-col cursor-pointer">
-            {currentUser ? (
-              <>
-                <MenuItem 
-                  label="My trips" 
-                   onClick={() => navigate('/trips')}
-                />
-                <MenuItem 
-                  label="My favorites" 
-                   onClick={() => navigate('/favorites')}
-                />
-
-                <MenuItem 
-                  label="My properties" 
-                  onClick={() => navigate('/properties')}
-                />
-  
-                <MenuItem 
-                  label="Add a new Listing" 
-                  onClick={rentModal.onOpen}
-                />
-                <hr />
-                <MenuItem 
-                  label="Logout" 
-                  // onClick={() => signOut()}
-                />
-              </>
-            ) : (
-              <>
-                <MenuItem 
-                  label="Login" 
-                  onClick={loginModal.onOpen}
-                />
-                <MenuItem 
-                  label="Sign up" 
-                  onClick={registerModal.onOpen}
-                />
-              </>
-            )}
-          </div>
-        </div>
-      )}
+<div className="relative">
+  <div className="flex flex-row items-center gap-3">
+    {/* Links visible on medium and larger screens */}
+    <div 
+      onClick={() => navigate('/')}
+      className="
+        hidden
+        md:block
+        text-sm 
+        font-semibold 
+        py-3 
+        px-4 
+        rounded-full 
+        hover:bg-neutral-100 
+        transition 
+        cursor-pointer
+      "
+    >
+      Home
     </div>
+
+    <div 
+      onClick={searchModal.onOpen}
+      className="
+        hidden
+        md:block
+        text-sm 
+        font-semibold 
+        py-3 
+        px-4 
+        rounded-full 
+        hover:bg-neutral-100 
+        transition 
+        cursor-pointer
+      "
+    >
+      Search
+    </div>
+
+    <div 
+      onClick={() => navigate('/listings')}
+      className="
+        hidden
+        md:block
+        text-sm 
+        font-semibold 
+        py-3 
+        px-4 
+        rounded-full 
+        hover:bg-neutral-100 
+        transition 
+        cursor-pointer
+      "
+    >
+      Listings
+    </div>
+
+    <div 
+      onClick={() => navigate('/about')}
+      className="
+        hidden
+        md:block
+        text-sm 
+        font-semibold 
+        py-3 
+        px-4 
+        rounded-full 
+        hover:bg-neutral-100 
+        transition 
+        cursor-pointer
+      "
+    >
+      About
+    </div>
+
+    <div 
+      onClick={() => navigate('/contact')}
+      className="
+        hidden
+        md:block
+        text-sm 
+        font-semibold 
+        py-3 
+        px-4 
+        rounded-full 
+        hover:bg-neutral-100 
+        transition 
+        cursor-pointer
+      "
+    >
+      Contact
+    </div>
+
+    {/* Menu button visible on all screen sizes */}
+    <div 
+      onClick={toggleOpen}
+      className="
+        p-4
+        md:py-1
+        md:px-2
+        border-[1px] 
+        border-neutral-200 
+        flex 
+        flex-row 
+        items-center 
+        gap-3 
+        rounded-full 
+        cursor-pointer 
+        hover:shadow-md 
+        transition
+      "
+    >
+      <AiOutlineMenu />
+      <div className="hidden md:block">
+        <Avatar src={currentUser?.avatar_url} />
+      </div>
+    </div>
+  </div>
+
+  {isOpen && (
+    <div 
+      className="
+        absolute 
+        rounded-xl 
+        shadow-md
+        w-[80vw]
+        md:w-3/4 
+        bg-white 
+        overflow-hidden 
+        right-0 
+        top-12 
+        text-sm
+      "
+    >
+      <div className="flex flex-col cursor-pointer">
+        {/* Links visible only on small devices */}
+        <div className="block md:hidden">
+  
+          <MenuItem 
+            label="Search" 
+            onClick={searchModal.onOpen}
+          />
+          <MenuItem 
+            label="Listings" 
+            onClick={() => navigate('/listings')}
+          />
+          <MenuItem 
+            label="About" 
+            onClick={() => navigate('/about')}
+          />
+          <MenuItem 
+            label="Contact" 
+            onClick={() => navigate('/contact')}
+          />
+        </div>
+
+        {/* User-specific menu items */}
+        {currentUser ? (
+          <>
+            <MenuItem 
+              label="My trips" 
+              onClick={() => navigate('/trips')}
+            />
+            <MenuItem 
+              label="My favorites" 
+              onClick={() => navigate('/favorites')}
+            />
+            <MenuItem 
+              label="My properties" 
+              onClick={() => navigate('/properties')}
+            />
+            <MenuItem 
+              label="Add a new Listing" 
+              onClick={rentModal.onOpen}
+            />
+            <hr />
+            <MenuItem 
+              label="Logout" 
+            />
+          </>
+        ) : (
+          <>
+            <MenuItem 
+              label="Login" 
+              onClick={loginModal.onOpen}
+            />
+            <MenuItem 
+              label="Sign up" 
+              onClick={registerModal.onOpen}
+            />
+          </>
+        )}
+      </div>
+    </div>
+  )}
+</div>
+
+
+
     </>
   )
 }

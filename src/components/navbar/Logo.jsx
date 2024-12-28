@@ -7,7 +7,7 @@ function Logo() {
    <>
     <img
       onClick={() => navigate('/')}
-      className="hidden md:block cursor-pointer" 
+      className="md:block cursor-pointer" 
       src="/images/logo.webp" 
       height="100" 
       width="100" 

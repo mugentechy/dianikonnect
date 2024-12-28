@@ -5,17 +5,18 @@ import ListingCard from "../components/listing/ListingCard";
 import { useDispatch, useSelector } from 'react-redux'
 import { amenities } from "../utils/amenities"
 import Loader from "../components/Loader"
-import Search from "../components/navbar/Search";
+import SearchBar from "../components/navbar/SearchBar";
 import { BiBadgeCheck  } from 'react-icons/bi';
 import { BiBeenHere   } from 'react-icons/bi';
 import { useState } from 'react';
 
+import { FaHouseChimney } from "react-icons/fa6";
 
 
 function HomePage({listings ,isLoading}) {
 
     const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 5; // Display 5 items at a time
+  const itemsPerPage = 3; // Display 5 items at a time
 
   const handleNext = () => {
     if (startIndex + itemsPerPage < listings?.length) {
@@ -34,25 +35,184 @@ function HomePage({listings ,isLoading}) {
 
   return (
     <>
-<div className="relative h-[600px] sm:h=[400px] lg:h=[500px] xl:h=[600px] 2xl:h-[700px]">
+
+<div className="relative h-[600px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
+  {/* Background Image */}
   <img
     className="w-full h-full object-cover"
     src="/images/banner.jpg"
-    alt="Logo"
+    alt="Banner"
   />
 
+  {/* Left-Aligned Content */}
+  <div className="absolute inset-0 flex items-center bg-black bg-opacity-50 px-8 sm:px-12 lg:px-16">
+    <div className="text-white max-w-lg">
+      {/* Icon and Title */}
+      <div className="mb-4">
+        <h5 className="flex items-center mb-2">
+          <FaHouseChimney className="text-4xl mr-2" />
+          Real Estate Agency
+        </h5>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Search and Find Luxury House
+        </h1>
+        <p className="text-sm sm:text-base lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+          commodo cursus magna.
+        </p>
+      </div>
 
-<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-<p className="text-sm sm:text-lg">
-Get your dream home
+      {/* Button */}
+      <button className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
+        Make an Enquiry
+      </button>
+    </div>
+  </div>
+</div>
 
-</p>
-        <Search />
+{/* Search Component Overlapping the Image */}
+<div className="relative -mt-16">
+  <div className="max-w-4xl mx-auto">
  
+    <SearchBar />
+  </div>
 </div>
-</div>
+
+
+
 
 <main className="max-w-7xl mx-auto px-8 sm:px-16">
+
+
+
+
+
+
+    <section className="pt-24">
+      <h2 className="text-4xl font-semibold pb-5">Live Anywhere</h2>
+      
+      {/* Navigation Buttons */}
+      <div className="flex justify-between mb-4">
+        <button 
+          onClick={handlePrevious} 
+          className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-300" 
+          disabled={startIndex === 0}
+        >
+          Previous
+        </button>
+        
+        <button 
+          onClick={handleNext} 
+          className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-300" 
+          disabled={startIndex + itemsPerPage >= listings?.length}
+        >
+          Next
+        </button>
+      </div>
+
+      {/* Listings Display */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        {!listings ? (
+          <Loader />
+        ) : (
+          listings
+            .slice(startIndex, startIndex + itemsPerPage)
+            .map((listing) => (
+              <ListingCard
+                currentUser={currentUser}
+                key={listing.id}
+                data={listing}
+              />
+            ))
+        )}
+      </div>
+    </section>
+
+
+
+
+
+ <section className="pt-24">
+
+  <div className="flex items-center justify-center pb-5">
+    <div className="flex-grow h-px bg-gray-300"></div>
+    <BiBeenHere className="mx-4 text-4xl text-blue-500" />
+    <div className="flex-grow h-px bg-gray-300"></div>
+  </div>
+
+<h3 className="text-4xl font-semibold pb-5 text-center">Available Amenities</h3>
+    <div 
+        className="
+        pt-6
+          grid 
+          grid-cols-1 
+          md:grid-cols-3 
+          gap-3
+          max-h-[50vh]
+          overflow-y-auto
+        "
+      >
+     {amenities.map((item) => (
+      <div key={item.label} className="col-span-1">
+        <ListingCategory
+          icon={item.icon} 
+          label={item?.label}
+          description={item?.description} 
+        />
+        </div>
+      ))}
+ </div>
+ </section>
+
+
+
+ </main>
+
+<section className="pt-24">
+  <div className="w-full h-[60vh] relative">
+    {/* Background Image */}
+    <img
+      src="/images/bg.jpg"
+      className="object-cover w-full h-full"
+      alt="Background"
+    />
+    
+    {/* Overlay */}
+    <div className="absolute inset-0 flex items-center bg-black bg-opacity-50 text-white px-8">
+      {/* House Image on the Left */}
+      <img
+        src="/images/house.png"
+        alt="House"
+        className="w-1/4 h-auto object-contain"
+      />
+
+      {/* Centered Text */}
+      <div className="flex-grow text-center">
+        <h1 className="text-5xl font-bold mb-4">Join Us Today</h1>
+        <p className="text-lg mb-6">Any question you have:+254 725 832454</p>
+        <div className="space-x-4">
+          <button className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300">
+            Make a Call
+          </button>
+          <button className="px-6 py-2 bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring focus:ring-green-300">
+            Contact Us
+          </button>
+        </div>
+      </div>
+
+      {/* Agent Image on the Right */}
+      <img
+        src="/images/agent.png"
+        alt="Agent"
+        className="w-1/4 h-auto object-contain"
+      />
+    </div>
+  </div>
+</section>
+
+
+<main className="max-w-7xl mx-auto px-8 sm:px-16">
+
 
 <section className="pt-24">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -105,102 +265,10 @@ Get your dream home
     </div>
   </div>
 </section>
+</main>
 
 
 
-
-    <section className="pt-24">
-      <h2 className="text-4xl font-semibold pb-5">Live Anywhere</h2>
-      
-      {/* Navigation Buttons */}
-      <div className="flex justify-between mb-4">
-        <button 
-          onClick={handlePrevious} 
-          className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-300" 
-          disabled={startIndex === 0}
-        >
-          Previous
-        </button>
-        
-        <button 
-          onClick={handleNext} 
-          className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:bg-gray-300" 
-          disabled={startIndex + itemsPerPage >= listings?.length}
-        >
-          Next
-        </button>
-      </div>
-
-      {/* Listings Display */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {!listings ? (
-          <Loader />
-        ) : (
-          listings
-            .slice(startIndex, startIndex + itemsPerPage)
-            .map((listing) => (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
-            ))
-        )}
-      </div>
-    </section>
-
- <section className="pt-24">
-
-  <div className="flex items-center justify-center pb-5">
-    <div className="flex-grow h-px bg-gray-300"></div>
-    <BiBeenHere className="mx-4 text-4xl text-blue-500" />
-    <div className="flex-grow h-px bg-gray-300"></div>
-  </div>
-
-<h3 className="text-4xl font-semibold pb-5 text-center">Available Amenities</h3>
-    <div 
-        className="
-        pt-6
-          grid 
-          grid-cols-1 
-          md:grid-cols-3 
-          gap-3
-          max-h-[50vh]
-          overflow-y-auto
-        "
-      >
-     {amenities.map((item) => (
-      <div key={item.label} className="col-span-1">
-        <ListingCategory
-          icon={item.icon} 
-          label={item?.label}
-          description={item?.description} 
-        />
-        </div>
-      ))}
- </div>
- </section>
-
-
-<section className="pt-24">
-  <div className="w-full h-[60vh] overflow-hidden rounded-xl relative">
-    <img
-      src="/images/jumb.jpg"
-      className="object-cover w-full h-full"
-      alt="Image"
-    />
-    
-    {/* Text Overlay */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white text-center">
-      <h1 className="text-5xl font-bold mb-4">Join Us Today</h1>
-      <p className="text-lg">
-        Be part of something bigger and explore the best opportunities with us.
-      </p>
-    </div>
-  </div>
-</section>
-
- </main>
     </>
   )
 }
