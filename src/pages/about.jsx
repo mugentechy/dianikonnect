@@ -1,4 +1,4 @@
-import ListingCategory from "../components/listing/ListingCategory";
+import HomeTags from "../components/listing/HomeTags";
 import { categories } from '../components/navbar/Categories';
 import Button from "../components/Button";
 import ListingCard from "../components/listing/ListingCard";
@@ -84,28 +84,38 @@ function AboutPage() {
 
 
               <section className="pt-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold mb-2">{count.listingsForSale} +</div>
-              <div className="text-lg">Listings for Sale</div>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold mb-2">{count.listingsForRent} +</div>
-              <div className="text-lg">Listings for Rent</div>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold mb-2">{count.propertySold} +</div>
-              <div className="text-lg">Property Sold</div>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold mb-2">{count.affiliatePartners} +</div>
-              <div className="text-lg">Affiliate Partners</div>
-            </div>
-          </div>
-          <div className="pt-12 text-center">
+
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+  <div className="flex flex-col items-center">
+    <div className="text-4xl font-bold mb-2">{count.listingsForSale} +</div>
+    <div className="text-lg">Listings for Sale</div>
+  </div>
+  <div className="flex flex-col items-center">
+    <div className="text-4xl font-bold mb-2">{count.listingsForRent} +</div>
+    <div className="text-lg">Listings for Rent</div>
+  </div>
+  <div className="flex flex-col items-center">
+    <div className="text-4xl font-bold mb-2">{count.propertySold} +</div>
+    <div className="text-lg">Property Sold</div>
+  </div>
+  <div className="flex flex-col items-center">
+    <div className="text-4xl font-bold mb-2">{count.affiliatePartners} +</div>
+    <div className="text-lg">Affiliate Partners</div>
+  </div>
+</div>
+
+
+
+          <div className=" max-w-7xl mx-auto pt-12 text-center">
             <p className="text-lg">
-              Home is where the heart is and we hope to transform your search for your perfect home into one of joy. Our company offers exquisitely designed, modern living villas in unique locations to suit your tastes and budget. We aim at offering a fresh new take on living spaces that are unparalleled by any other developer. Our apartments are completed with the latest in contemporary architecture, luxurious fittings and fixtures, contemporary interiors that will make your home feel like a luxury hotel suite, at a price that you can afford. We have an extensive portfolio of modern living villas found in unique locations and offer a quality, contemporary design to suit your tastes and budget. This makes us the perfect choice for those who are looking for high-end quality in an easy yet affordable way. Our company will work with you throughout the process, from initial discussions to finalizing your purchase and even after your move as we are always available to answer any questions that may arise.
-            </p>
+              Home is where the heart is and we hope to transform your search for your perfect home into one of joy.
+               Our company offers exquisitely designed, modern living villas in unique locations to suit your tastes and budget.
+                We aim at offering a fresh new take on living spaces that are unparalleled by any other developer.
+                 Our apartments are completed with the latest in contemporary architecture, luxurious fittings and fixtures,
+                  contemporary interiors that will make your home feel like a luxury hotel suite, at a price that you can afford.
+                   We have an extensive portfolio of modern living villas found in unique locations and offer a quality, contemporary
+                    design to suit your tastes and budget. This makes us the perfect choice for those who are looking for high-end quality
+                     in an easy yet affordable way.</p>
           </div>
         </section>
 
@@ -145,19 +155,7 @@ function AboutPage() {
      <form>
   {/* First Row */}
   <div className="flex flex-wrap gap-4">
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Select
-        id="user_type"
-        label="Personal Information"
-        options={[
-          { value: '', label: 'Select' },
-          { value: 'Property owner', label: 'Property owner' },
-          { value: 'Agent', label: 'Agent' }
-        ]}
-        placeholder="Select your role"
-        required
-      />
-    </div>
+
     <div className="flex-1 mb-4 min-w-[200px]">
       <Input
         id="first_name"
@@ -207,84 +205,21 @@ function AboutPage() {
   {/* Third Row */}
   <div className="flex flex-wrap gap-4">
     <div className="flex-1 mb-4 min-w-[200px]">
-      <Select
-        id="property_type"
-        label="Property Information"
-        options={[
-          { value: '', label: 'Type' },
-          { value: 'apartment', label: 'Apartment' },
-          { value: 'office', label: 'Office' },
-          { value: 'shop', label: 'Shop' },
-          { value: 'single-family-home', label: 'Single Family Home' },
-          { value: 'studio', label: 'Studio' },
-          { value: 'villa', label: 'Villa' }
-        ]}
-        placeholder="Select property type"
-        required
-      />
+    <textarea
+    id="message"
+    label="Message"
+    disabled={isLoading}
+    {...register('message', { required: true })}
+    className="w-full p-2 border rounded-md"
+    rows="5"  // You can adjust the number of rows as needed
+    placeholder="Enter your message"
+  />
     </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="zipcode"
-        label="Zip code"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Select
-        id="city"
-        label="City"
-        options={[
-          { value: '', label: 'City' },
-          { value: 'fort-lauderdale', label: 'Fort Lauderdale' },
-          { value: 'miami', label: 'Miami' },
-          { value: 'sarasota', label: 'Sarasota' },
-          { value: 'west-palm-beach', label: 'West Palm Beach' }
-        ]}
-        placeholder="Select city"
-      />
-    </div>
+
+
   </div>
 
-  {/* Fourth Row */}
-  <div className="flex flex-wrap gap-4">
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="beds"
-        label="Number of bedrooms"
-        type="number"
-        disabled={isLoading}
-        register={register}
-        required
-        min="0"
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="baths"
-        label="Number of bathrooms"
-        type="number"
-        disabled={isLoading}
-        register={register}
-        required
-        min="0"
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="price"
-        label="Your budget"
-        type="number"
-        disabled={isLoading}
-        register={register}
-        required
-        min="0"
-      />
-    </div>
-  </div>
+
 
   {/* Submit Button */}
   <div className="mb-4">
@@ -328,13 +263,12 @@ function AboutPage() {
               grid-cols-1 
               md:grid-cols-3 
               gap-3
-              max-h-[50vh]
-              overflow-y-auto
+           
             "
           >
             {amenities.map((item) => (
               <div key={item.label} className="col-span-1">
-                <ListingCategory
+                <HomeTags
                   icon={item.icon} 
                   label={item?.label}
                   description={item?.description} 

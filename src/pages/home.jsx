@@ -1,4 +1,4 @@
-import ListingCategory from "../components/listing/ListingCategory";
+import HomeTags from "../components/listing/HomeTags";
 import { categories } from '../components/navbar/Categories';
 import Button from "../components/Button";
 import ListingCard from "../components/listing/ListingCard";
@@ -148,13 +148,13 @@ function HomePage({listings ,isLoading}) {
           grid-cols-1 
           md:grid-cols-3 
           gap-3
-          max-h-[50vh]
+        
           overflow-y-auto
         "
       >
      {amenities.map((item) => (
       <div key={item.label} className="col-span-1">
-        <ListingCategory
+        <HomeTags
           icon={item.icon} 
           label={item?.label}
           description={item?.description} 

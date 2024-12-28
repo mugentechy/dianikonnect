@@ -21,11 +21,6 @@ BiRestaurant,
 import {  TbPool } from 'react-icons/tb';
 export const amenities = [
 
-  {
-    label: 'Bathtub',
-    icon: BiBath,
-    description: 'This property is close to the beach!',
-  },
 
   {
     label: 'Washer',
@@ -53,11 +48,6 @@ export const amenities = [
     description: 'This property is modern!'
   },
   {
-    label: 'Microwave',
-    icon: MdMicrowave,
-    description: 'This property is near a lake!'
-  },
-  {
     label: 'Beach view',
     icon: MdBeachAccess,
     description: 'This property is in the countryside!'
@@ -67,11 +57,7 @@ export const amenities = [
     icon: MdOutlineWindPower,
     description: 'This property is modern!'
   },
-  {
-    label: 'Kitchen',
-    icon: BiRestaurant,
-    description: 'Pots and pans, oil, salt and pepper'
-  },
+
   {
     label: 'Free parking on premises',
     icon: BiCar,
