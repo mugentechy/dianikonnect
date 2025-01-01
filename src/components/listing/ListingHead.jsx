@@ -48,8 +48,8 @@ function ListingHead({
     infiniteLoop={true}
   >
     {imageSrc[0].map((src, index) => (
-      <div key={index} className="h-full w-full">
-        <img src={src} alt={`Slide ${index}`} className="object-cover w-full h-full" />
+      <div key={index} className=" w-full">
+        <img src={src} alt={`Slide ${index}`} className="w-full" />
       </div>
     ))}
   </Carousel>

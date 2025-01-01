@@ -73,13 +73,13 @@ function Footer() {
 
   {/* Social Media Links */}
   <div className="mt-4 flex space-x-4">
-    <a href="#" className="hover:text-gray-400 text-2xl">
+    <a href="https://www.facebook.com/vicmugenya" className="hover:text-gray-400 text-2xl">
       <BiLogoFacebook />
     </a>
-    <a href="#" className="hover:text-gray-400 text-2xl">
+    <a href="https://www.instagram.com/dianibeachrealty/profilecard/?igsh=MWhxY3FtaXc2Y2Fpeg==" className="hover:text-gray-400 text-2xl">
       <BiLogoInstagram />
     </a>
-    <a href="#" className="hover:text-gray-400 text-2xl">
+    <a href="https://www.tiktok.com/@b.mugen?_t=ZM-8siA6DSitC2&_r=1" className="hover:text-gray-400 text-2xl">
       <BiLogoTiktok />
     </a>
   </div>

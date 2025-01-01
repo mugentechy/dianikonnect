@@ -117,6 +117,38 @@ function ListingCard({
 </ul>
 
 
+
+  <div className="flex items-center justify-between mt-3">
+  {/* Agent Information */}
+  <div className="flex items-center gap-2">
+    <div className="w-8 h-8 rounded-full overflow-hidden">
+      <img
+        src={data?.agentImage || "/images/author.jpg"}
+        alt="Agent"
+        className="object-cover w-full h-full"
+      />
+    </div>
+    <div>
+      <h6 className="font-semibold text-sm">
+        <a href="/team-details" className="hover:text-gray-300">
+          {data?.agentName || "Victor M."}
+        </a>
+      </h6>
+      <small className="text-xs">Property Seller</small>
+    </div>
+  </div>
+  {/* Heart Button */}
+   <button className="bg-red p-2 shadow-md flex items-center justify-center">
+          
+
+           
+                <span className="ml-1">{statusLabel}</span>
+              </button>
+
+
+</div>
+
+
       </div>
     </>
   );
