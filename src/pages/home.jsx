@@ -9,11 +9,12 @@ import SearchBar from "../components/navbar/SearchBar";
 import { BiBadgeCheck  } from 'react-icons/bi';
 import { BiBeenHere   } from 'react-icons/bi';
 import { useState } from 'react';
+import { listings } from "../utils/data";
 
 import { FaHouseChimney } from "react-icons/fa6";
 
 
-function HomePage({listings ,isLoading}) {
+function HomePage() {
 
     const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 3; // Display 5 items at a time
@@ -112,19 +113,17 @@ function HomePage({listings ,isLoading}) {
 
       {/* Listings Display */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-        {!listings ? (
-          <Loader />
-        ) : (
-          listings
-            .slice(startIndex, startIndex + itemsPerPage)
-            .map((listing) => (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
-            ))
-        )}
+
+  {listings
+    .slice(startIndex, startIndex + itemsPerPage)
+    .map((listing) => (
+      <ListingCard
+        currentUser={currentUser}
+        key={listing.id}
+        data={listing}
+      />
+    ))}
+
       </div>
     </section>
 

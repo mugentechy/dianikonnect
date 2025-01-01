@@ -1,13 +1,14 @@
 import PropertiesClient from "../components/listing/PropertiesClient";
 import { useSelector } from 'react-redux'
 import EmptyState from "../components/EmptyState";
+import { listings } from "../utils/data";
 
 
 function PropertiesPage() {
 
   const { currentUser } = useSelector((state) => state.currentUser)
-  const { listings } = useSelector((state) => state.listings)
-  
+  console.log(listings)
+
   if (!currentUser) {
     return <EmptyState
       title="Unauthorized"

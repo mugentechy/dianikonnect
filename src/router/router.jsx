@@ -29,7 +29,7 @@ import Footer from  '../components/footer'
 function Router() {
 
 const { user } = useAuthListener()
-console.log(user)
+
 
 const dispatch = useDispatch();
 const { listings,isLoading } = useSelector((state) => state.listings)
@@ -55,8 +55,8 @@ const { listings,isLoading } = useSelector((state) => state.listings)
    <Navbar/>
    <div className="pb-20">
       <Routes>
-      <Route path='/' element={<HomePage listings={listings} isLoading={isLoading}/>} />
-      <Route path='/listings' element={ <Listing listings={listings} isLoading={isLoading} /> } />
+      <Route path='/' element={<HomePage />} />
+      <Route path='/listings' element={ <Listing  /> } />
        <Route path='/listing/:id' element={<ListingPage />} />
        <Route path='/trips' element={<TripsPage />} />
        <Route path='/favorites' element={<FavoritePage />} />

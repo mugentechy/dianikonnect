@@ -23,6 +23,8 @@ function ListingHead({
     setSelectedImage(selectedIndex);
   };
 
+  console.log(imageSrc[0])
+
 
   return (
     <>
@@ -45,7 +47,7 @@ function ListingHead({
     showIndicators={false}
     infiniteLoop={true}
   >
-    {imageSrc.map((src, index) => (
+    {imageSrc[0].map((src, index) => (
       <div key={index} className="h-full w-full">
         <img src={src} alt={`Slide ${index}`} className="object-cover w-full h-full" />
       </div>

@@ -3,17 +3,19 @@ import ListingCard from "./listing/ListingCard";
 import Container from "./Container";
 import Categories from "./navbar/Categories";
 import Loader from "./Loader"
+import { listings } from "../utils/data";
 
-function Listing({listings,isLoading }) {
+function Listing() {
 
 
  const { currentUser } = useSelector((state) => state.currentUser)
+ console.log(listings)
 
   return (
     <>
       <Container>
          <div className="pt-24">
-  <Categories />
+
         <div 
           className="
         
@@ -23,24 +25,21 @@ function Listing({listings,isLoading }) {
             md:grid-cols-3 
             lg:grid-cols-4
             xl:grid-cols-5
-            2xl:grid-cols-6
+            2xl:grid-cols-4
             gap-8
           "
         >
-         {isLoading === true ?
+  {listings.map((listing) => (
+      <ListingCard
+        currentUser={currentUser}
+        key={listing.id}
+        data={listing}
+      />
+    ))}
 
-         <Loader />
-:
-              <>
-    {listings?.map((listing) => (
-            <ListingCard
-              currentUser={currentUser}
-              key={listing.id}
-              data={listing}
-            />
-          ))}
 
-</>}
+
+
         </div>
          </div>
       </Container>

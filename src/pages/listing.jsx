@@ -4,27 +4,27 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getListingAsync } from "../features/listing/listingActions";
 import { getReservationAsync } from "../features/reservation/reservationActions";
 import { useParams } from "react-router-dom";
-
+import { listings } from "../utils/data";
 
 function ListingPage() {
 
   let { id } = useParams()
 const dispatch = useDispatch();
 
-    const { listing } = useSelector((state) => state.listing)
+ const listing = listings.find((item) => item.id === parseInt(id, 10));
 
  const { currentUser } = useSelector((state) => state.currentUser)
 
     useEffect(() => {
        
-        dispatch(getListingAsync(id))
+       
          dispatch(getReservationAsync(id))
   
     },[])
 
   return (
     <>
-      <ListingClient
+     <ListingClient
         listing={listing}
         currentUser={currentUser}
         

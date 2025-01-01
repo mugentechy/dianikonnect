@@ -10,7 +10,8 @@ export const getReservation= async (listing_id) => {
 
         return data
     } catch(e) {
-        console.log('An error occured: ',e)
+       
+        throw e;
     }
 }
 

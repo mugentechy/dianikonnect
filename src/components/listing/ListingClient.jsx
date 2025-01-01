@@ -34,8 +34,6 @@ function ListingClient({listing, currentUser}) {
   const loginModal = useLoginModal();
 
 
-
-
   const disabledDates = useMemo(() => {
     let dates = [];
 
@@ -120,7 +118,8 @@ const amenity = useMemo(() => {
 
 
   const images = listing?.images || [];
-  const imageSrcList = [listing?.image_src, ...images?.map(image => image.image_src)];
+  const imageSrcList = [listing?.images, ...images?.map(image => image.images)];
+
 
 
 
@@ -171,8 +170,8 @@ const amenity = useMemo(() => {
                 md:col-span-3
               "
             >
-              <ListingReservation
-                price={listing.price}
+           <ListingReservation
+                price={listing?.price}
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
                 dateRange={dateRange}

@@ -24,7 +24,7 @@ function ListingInfo({
    const coordinates =  [1, 38]
     
 
-
+console.log(category)
 
   return (
     <>
@@ -89,16 +89,17 @@ function ListingInfo({
           overflow-y-auto
         "
       >
-{amenity && amenity.map((item) => (
-    <div key={item.label} className="col-span-1">
-  <ListingCategory
-    key={item.label}
-    icon={item.icon} 
-    label={item.label}
-    description={item.description} 
-  />
-  </div>
-))}
+{amenity &&
+  amenity.map((item, index) => (
+    <div key={index} className="col-span-1">
+      <ListingCategory
+        icon={item?.icon}
+        label={item?.label}
+        description={item?.description}
+      />
+    </div>
+  ))}
+
 </div>
       <hr />
       <Map center={coordinates} />
