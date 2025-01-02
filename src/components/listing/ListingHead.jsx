@@ -30,7 +30,7 @@ function ListingHead({
     <>
       <Heading
         title={title}
-        subtitle='Africa, Kenya'
+        subtitle={location}
       />
 <div
   className="

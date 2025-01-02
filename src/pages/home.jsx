@@ -16,6 +16,35 @@ import { FaHouseChimney } from "react-icons/fa6";
 
 function HomePage() {
 
+  const review = [
+  {
+    id: 1,
+    name: "Msambweni bay",
+    image: "https://res.cloudinary.com/doammcpie/image/upload/v1735823800/459883368_1047725447356517_3294153735467225596_n_eqjz4l.jpg",
+    rating: "8.5",
+  },
+  {
+    id: 2,
+    name: "beach front",
+    image: "https://res.cloudinary.com/doammcpie/image/upload/v1735825318/wed/330167473_506904148191482_1813237685537255236_n_e2u5ww.jpg",
+    rating: "7.9",
+  },
+  {
+    id: 3,
+    name: "Bella Napoli",
+    image: "/images/bella-napoli.jpg",
+    rating: "7.5",
+  },
+  {
+    id: 4,
+    name: "Marcus",
+    image: "/images/marcus.jpg",
+    rating: "9.0",
+  },
+];
+
+
+
     const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 3; // Display 5 items at a time
 
@@ -127,6 +156,50 @@ function HomePage() {
       </div>
     </section>
 
+
+
+
+
+
+
+
+
+
+
+
+<section className="pt-24">
+  <div className="max-w-7xl mx-auto px-8">
+    <h2 className="text-4xl font-semibold pb-5">Popular Restaurants</h2>
+    <p className="text-gray-500 mb-8">
+      Cum doctus civibus efficiantur in imperdiet deterruisset.
+    </p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {review.slice(0, 4).map((restaurant) => (
+        <div
+          key={restaurant.id}
+          className="relative bg-white rounded-lg shadow-lg overflow-hidden"
+        >
+          <img
+            src={restaurant.image}
+            alt={restaurant.name}
+            className="w-full h-48 object-cover"
+          />
+          <div className="p-4">
+            <h3 className="text-lg font-semibold">{restaurant.name}</h3>
+          </div>
+          <div className="absolute top-4 right-4 bg-blue-600 text-white px-2 py-1 rounded-lg">
+            {restaurant.rating}
+          </div>
+        </div>
+      ))}
+    </div>
+    <div className="text-right mt-6">
+      <button className="text-blue-600 hover:underline">
+        View all ({listings.length})
+      </button>
+    </div>
+  </div>
+</section>
 
 
 

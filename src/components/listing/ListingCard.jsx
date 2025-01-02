@@ -123,7 +123,7 @@ function ListingCard({
   <div className="flex items-center gap-2">
     <div className="w-8 h-8 rounded-full overflow-hidden">
       <img
-        src={data?.agentImage || "/images/author.jpg"}
+        src={data?.agentImage || "https://res.cloudinary.com/doammcpie/image/upload/v1735803301/135111164_2800118623571205_3672319407065042766_n_jeourq.jpg"}
         alt="Agent"
         className="object-cover w-full h-full"
       />

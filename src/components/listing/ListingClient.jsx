@@ -156,10 +156,10 @@ const amenity = useMemo(() => {
               category={category}
               amenity={amenity}
    
-              description={listing['description']}
-              roomCount={listing['room_count']}
+              description={listing['info']}
+              roomCount={listing['bedrooms']}
               guestCount={listing['guest_count']}
-              bathroomCount={listing['bathroom_count']}
+              bathroomCount={listing['bathrooms']}
               locationValue={listing['location_value']}
             />
             <div 

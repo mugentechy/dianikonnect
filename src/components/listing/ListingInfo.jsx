@@ -4,7 +4,7 @@ import useCountries from "../../hooks/useCountries";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 import Map from "../Map"
-
+import { amenities } from "../../utils/amenities"
 
 
 function ListingInfo({
@@ -65,13 +65,16 @@ console.log(category)
       </div>
       <hr />
 
-      {category && (
-        <ListingCategory
-          icon={category.icon} 
-          label={category?.label}
-          description={category?.description} 
-        />
-      )}
+         {amenities.map((item) => (
+              
+                <ListingCategory
+                  icon={item.icon} 
+                  label={item?.label}
+                  description={item?.description} 
+                />
+            
+            ))}
+  
       <hr />
       <div className="
       text-lg font-light text-neutral-500">
