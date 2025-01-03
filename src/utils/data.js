@@ -765,13 +765,107 @@ To the left is the modern kitchen with central island, leading through to the un
       'https://res.cloudinary.com/doammcpie/image/upload/v1735831994/26/306363332_510942511034816_7828135803347301810_n_tvqb2g.jpg',
       'https://res.cloudinary.com/doammcpie/image/upload/v1735831979/26/306277682_510942204368180_7825161529125822012_n_uldzk0.jpg',
        'https://res.cloudinary.com/doammcpie/image/upload/v1735831976/26/306156956_510942421034825_3096594623476735093_n_y3dngp.jpg',
-      'https://res.cloudinary.com/doammcpie/image/upload/v1735831976/26/306156956_510942421034825_3096594623476735093_n_y3dngp.jpg'
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735831995/26/306511079_510942354368165_3126711972762001262_n_v640dd.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735831995/26/306511079_510942354368165_3126711972762001262_n_v640dd.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735831997/26/306516759_510942644368136_2580525740698027204_n_p2iasp.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735831998/26/306525132_510942477701486_5973512328273994737_n_b2vooa.jpg'
     ],
     price: 'Contact for pricing', // Pricing not directly applicable
     category: 'property',
     bedroom: '3',
     location:'WATAMU',
     bathroom: '2',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },{
+    id: 27,
+    title: 'LUXURIOUS 1BEDROOM COTTAGE',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735841587/27/306452513_510938201035247_8836738559144226117_n_raiia9.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735841588/27/306982402_510938037701930_111542576539993041_n_fumclt.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735841587/27/306189809_510938091035258_8863047164326027490_n_ytb8mm.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735841587/27/306003067_510938501035217_898285725360481839_n_ejolyu.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735841587/27/304857021_510938594368541_13480952726990953_n_pffhae.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735841588/27/306560841_510938631035204_5307905052888627141_n_dxkwza.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '1',
+    location:'WATAMU',
+    bathroom: '2',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },{
+    id: 28,
+    title: 'LUXURY 4BEDROOMS VILLA',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735843615/28/289705548_3131622233778539_2698309276734559447_n_nlpxtv.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735842638/28/288880188_3131624137111682_2627708207159998165_n_i7bkhp.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735843554/28/289594792_3131623663778396_2765669695554895200_n_xdzxgn.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735842637/28/288864565_3131624077111688_6378466506049844715_n_nwvx7w.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735843149/28/289112202_3131624173778345_6592020711020600147_n_yx4b7x.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735843240/28/289312950_3131623853778377_7245885757250885061_n_ajlfqr.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735843487/28/289405181_3131623737111722_6668780316426904113_n_ifoqsx.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735843365/28/289344635_3131623930445036_8730738419048119082_n_jkbyzy.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735843427/28/289395841_3131623883778374_223127962252582416_n_ggsrsd.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'DIANI',
+    bathroom: '3',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },{
+    id: 29,
+    title: 'CHARMING 4BEDROOM VILLAS',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735846260/29/288872255_3131608703779892_8261434509836482466_n_rexjms.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735848790/29/290010211_3131607753779987_4807483878118930443_n_ctzpwh.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735846040/29/288532859_3131609007113195_859857916688824464_n_dfvekp.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735846582/29/289313824_3131609177113178_1409420258382340939_n_ckwzhh.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735847705/29/289953197_3131609080446521_8558695076365964951_n_nthftn.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735846934/29/289638857_3131609307113165_6868875226064604489_n_qlykib.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735848844/29/290337532_3131609433779819_333510393950985900_n_qcka92.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'DIANI',
+    bathroom: '3',
     subject: 'Holiday Home',
     info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
 

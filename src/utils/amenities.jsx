@@ -42,11 +42,7 @@ export const amenities = [
     icon: MdPool,
     description: 'This is property has a beautiful pool!'
   },
-  {
-    label: 'Refrigerator',
-    icon: MdOutlineKitchen,
-    description: 'This property is modern!'
-  },
+
   {
     label: 'Beach view',
     icon: MdBeachAccess,

@@ -46,7 +46,7 @@ function HomePage() {
 
 
     const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 3; // Display 5 items at a time
+  const itemsPerPage = 6; // Display 5 items at a time
 
   const handleNext = () => {
     if (startIndex + itemsPerPage < listings?.length) {
@@ -206,11 +206,7 @@ function HomePage() {
 
  <section className="pt-24">
 
-  <div className="flex items-center justify-center pb-5">
-    <div className="flex-grow h-px bg-gray-300"></div>
-    <BiBeenHere className="mx-4 text-4xl text-blue-500" />
-    <div className="flex-grow h-px bg-gray-300"></div>
-  </div>
+
 
 <h3 className="text-4xl font-semibold pb-5 text-center">Available Amenities</h3>
     <div 
@@ -218,7 +214,7 @@ function HomePage() {
         pt-6
           grid 
           grid-cols-1 
-          md:grid-cols-3 
+          md:grid-cols-4
           gap-3
         
           overflow-y-auto
