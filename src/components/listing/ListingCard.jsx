@@ -18,7 +18,7 @@ function ListingCard({
 }) {
   let navigate = useNavigate();
 
-  console.log(data)
+
 
   // Set the label based on the status of the listing
   const statusLabel = data?.status === "sale" ? "For Sale" : "For Rent";

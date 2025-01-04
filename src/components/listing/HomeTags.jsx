@@ -11,8 +11,8 @@ function HomeTags({
     <>
 <div className="flex flex-col items-center bg-white shadow-md rounded-lg p-6 text-center">
   {/* Icon Section */}
-  <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-    <Icon size={40} className="text-red-500" />
+  <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+    <Icon size={40} className="text-blue-500" />
   </div>
 
 

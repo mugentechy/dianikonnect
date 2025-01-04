@@ -14,7 +14,7 @@ import HomePage from "../pages/home";
 import TripsPage from "../pages/trips";
 import FavoritePage from "../pages/favorite";
 import ContactPage from "../pages/contact";
-
+import SearchResultsPage from '../pages/SearchResultsPage';
 import PropertiesPage from "../pages/properties";
 import { BrowserRouter, Routes, Route,useNavigate } from 'react-router-dom'
 
@@ -61,6 +61,7 @@ const { listings,isLoading } = useSelector((state) => state.listings)
        <Route path='/trips' element={<TripsPage />} />
        <Route path='/favorites' element={<FavoritePage />} />
         <Route path='/properties' element={<PropertiesPage />} />
+         <Route path="/search-results" element={<SearchResultsPage />} />
          <Route path='/about' element={<AboutPage />} />
           <Route path='/contact' element={<ContactPage />} />
  

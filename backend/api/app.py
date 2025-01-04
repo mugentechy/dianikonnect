@@ -5,16 +5,18 @@ from flask_sqlalchemy import SQLAlchemy
 from config import configurations
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
+from flask_mail import Mail
 
 db = SQLAlchemy()
 migrate = Migrate()
 cors = CORS()
+mail = Mail()
 
 def register_extensions(app):
     db.init_app(app)
     migrate.init_app(app,db)
     cors.init_app(app)
-    
+    mail.init_app(app)
 
 def register_blueprints(app):
     from api.users import users

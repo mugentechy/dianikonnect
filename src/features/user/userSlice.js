@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { authUserAsync, getCurrentUserAsync } from './userActions'
+import { authUserAsync, getCurrentUserAsync,getSubscribeAsync,contactAsync } from './userActions'
 
 const initialState = {
     error: null,
@@ -14,6 +14,30 @@ const userSlice = createSlice({
     reducers: {},
         extraReducers: (builder) => {
         builder
+            .addCase(contactAsync.pending, (state) => {
+                state.isLoading = 'true';
+            })
+            .addCase(contactAsync.fulfilled, (state, { payload }) => {
+                state.isLoading = 'false';
+        
+            })
+
+            .addCase(contactAsync.rejected, (state, { payload }) => {
+                state.isLoading = 'false';
+                state.error = payload;
+            })
+            .addCase(getSubscribeAsync.pending, (state) => {
+                state.isLoading = 'true';
+            })
+            .addCase(getSubscribeAsync.fulfilled, (state, { payload }) => {
+                state.isLoading = 'false';
+                state.user = payload;
+            })
+
+            .addCase(getSubscribeAsync.rejected, (state, { payload }) => {
+                state.isLoading = 'false';
+                state.error = payload;
+            })
             .addCase(authUserAsync.pending, (state) => {
                 state.isLoading = 'true';
             })

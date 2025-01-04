@@ -9,12 +9,12 @@ import Search from "../components/navbar/Search";
 import { BiBadgeCheck, BiBeenHere } from 'react-icons/bi';
 import { useState } from 'react';
 import { useEffect, useRef } from 'react';
-
+import { toast } from "react-hot-toast";
 import Select from 'react-select'
 import Input from "../components/inputs/Input";
 
 import { useForm } from 'react-hook-form'
-
+import { contactAsync } from '../features/user/userActions'
 
 
 
@@ -23,20 +23,21 @@ function AboutPage() {
   const [count, setCount] = useState({ listingsForSale: 0, listingsForRent: 0, propertySold: 0, affiliatePartners: 0 });
   const hasAnimated = useRef(false);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
 
-   const {
-        register, 
-        handleSubmit,  
-        formState: {
-          errors,
-        },
-     } = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-      password: ''
-    },
-  });
+
+  const addContact = async (data) => {
+   
+    try {
+      await dispatch(contactAsync(data));
+      console.log("Form submitted successfully:", data);
+      toast.success("Your request has been submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("There was an error submitting your request. Please try again.");
+    } 
+  };
 
   useEffect(() => {
     if (!hasAnimated.current) {
@@ -105,18 +106,22 @@ function AboutPage() {
 </div>
 
 
+<div className="max-w-7xl mx-auto pt-12 text-center px-6 md:px-12">
+  <p className="text-lg md:text-xl lg:text-2xl leading-relaxed ">
+    <span className="font-semibold text-blue-600">
+      "Home is where the heart is," 
+    </span> 
+    and we strive to transform your search for the perfect home into a journey of joy.  
+    Our company specializes in exquisitely designed, modern living villas located in unique, serene environments to suit both your tastes and budget.
+   
+    We are redefining living spaces with fresh, contemporary designs unparalleled by other developers. 
+    Our homes are crafted with luxurious fittings, stylish interiors, and architectural finesse—delivering a unique blend of comfort and elegance. 
+  
+    Explore our extensive portfolio of modern villas, each designed to offer high-end quality at an affordable price.
+    Whether you’re seeking sophistication, style, or functionality, we are your trusted partner in finding a home that truly feels like a luxury retreat.
+  </p>
+</div>
 
-          <div className=" max-w-7xl mx-auto pt-12 text-center">
-            <p className="text-lg">
-              Home is where the heart is and we hope to transform your search for your perfect home into one of joy.
-               Our company offers exquisitely designed, modern living villas in unique locations to suit your tastes and budget.
-                We aim at offering a fresh new take on living spaces that are unparalleled by any other developer.
-                 Our apartments are completed with the latest in contemporary architecture, luxurious fittings and fixtures,
-                  contemporary interiors that will make your home feel like a luxury hotel suite, at a price that you can afford.
-                   We have an extensive portfolio of modern living villas found in unique locations and offer a quality, contemporary
-                    design to suit your tastes and budget. This makes us the perfect choice for those who are looking for high-end quality
-                     in an easy yet affordable way.</p>
-          </div>
         </section>
 
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
@@ -129,7 +134,7 @@ function AboutPage() {
             Our real estate company has a number of luxury and exclusive listings that are perfect for international clients.
           </p>
           <p className="mb-4">
-            Contact us: <strong>987 654 3210</strong>
+            Contact us: <strong>+254 725 832454</strong>
           </p>
         </div>
 
@@ -152,86 +157,93 @@ function AboutPage() {
 
  <div>
           <h2 className="text-2xl font-semibold mb-4">Property Valuation Form</h2>
-     <form>
-  {/* First Row */}
-  <div className="flex flex-wrap gap-4">
+       <form onSubmit={handleSubmit(addContact)}>
+          {/* First Row */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="first_name"
+                label="First Name"
+                type="text"
+                placeholder="First Name"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+                
+              {...register("fname", { required: "First name is required" })}
+              />
+            
+            </div>
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="last_name"
+                label="Last Name"
+                type="text"
+                placeholder="Last Name"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+              {...register("lname", { required: "Last name is required" })}
+              />
+             
+            </div>
+          </div>
 
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="first_name"
-        label="First name"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="last_name"
-        label="Last name"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-  </div>
+          {/* Second Row */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="email"
+                label="Email Address"
+                type="email"
+                placeholder="Email"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+               
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email address",
+                  },
+                })}
+              />
+           
+            </div>
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="phone"
+                label="Phone Number"
+                placeholder="Phone Number"
+                type="text"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+                {...register("phone", { required: "Phone number is required" })}
+              />
+             
+            </div>
+          </div>
 
-  {/* Second Row */}
-  <div className="flex flex-wrap gap-4">
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="email"
-        label="Email address"
-        type="email"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="mobile"
-        label="Phone number"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-  </div>
+          {/* Third Row */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <textarea
+                id="message"
+                placeholder="Enter your message"
+               
+                {...register("message", { required: "Message is required" })}
+                className="w-full p-2 border rounded-md"
+                rows="5"
+              />
+             
+            </div>
+          </div>
 
-  {/* Third Row */}
-  <div className="flex flex-wrap gap-4">
-    <div className="flex-1 mb-4 min-w-[200px]">
-    <textarea
-    id="message"
-    label="Message"
-    disabled={isLoading}
-    {...register('message', { required: true })}
-    className="w-full p-2 border rounded-md"
-    rows="5"  // You can adjust the number of rows as needed
-    placeholder="Enter your message"
-  />
-    </div>
-
-
-  </div>
-
-
-
-  {/* Submit Button */}
-  <div className="mb-4">
-    <button
-      type="submit"
-      className="px-4 py-2 bg-blue-500 text-white rounded-md w-full"
-      disabled={isLoading}
-    >
-      {isLoading ? 'Submitting...' : 'Submit'}
-    </button>
-  </div>
-</form>
+          {/* Submit Button */}
+          <div className="mb-4">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-500 text-white rounded-md w-full"
+            
+            >
+              Submit
+            </button>
+          </div>
+        </form>
 
         </div>
   
@@ -261,7 +273,7 @@ function AboutPage() {
               pt-6
               grid 
               grid-cols-1 
-              md:grid-cols-3 
+              md:grid-cols-4
               gap-3
            
             "

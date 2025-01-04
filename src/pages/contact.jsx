@@ -12,11 +12,11 @@ import { useEffect, useRef } from 'react';
 import Map from "../components/Map"
 import Select from 'react-select'
 import Input from "../components/inputs/Input";
-
+import { toast } from "react-hot-toast";
 import { BiLogoFacebook } from "react-icons/bi";
 import { BiLogoInstagram } from "react-icons/bi";
 import { BiLogoTiktok } from "react-icons/bi";
-
+import { contactAsync } from '../features/user/userActions'
 import { useForm } from 'react-hook-form'
 
 
@@ -28,20 +28,21 @@ function ContactPage() {
   const hasAnimated = useRef(false);
   const [isLoading, setIsLoading] = useState(false);
 
-   const {
-        register, 
-        handleSubmit,  
-        formState: {
-          errors,
-        },
-     } = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-      password: ''
-    },
-  });
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
 
+
+  const addContact = async (data) => {
+   
+    try {
+      await dispatch(contactAsync(data));
+      console.log("Form submitted successfully:", data);
+      toast.success("Your request has been submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("There was an error submitting your request. Please try again.");
+    } 
+  };
 
   return (
     <>
@@ -59,92 +60,93 @@ function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
+  <form onSubmit={handleSubmit(addContact)}>
+          {/* First Row */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="first_name"
+                label="First Name"
+                type="text"
+                placeholder="First Name"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+                
+              {...register("fname", { required: "First name is required" })}
+              />
+            
+            </div>
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="last_name"
+                label="Last Name"
+                type="text"
+                placeholder="Last Name"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+              {...register("lname", { required: "Last name is required" })}
+              />
+             
+            </div>
+          </div>
 
+          {/* Second Row */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="email"
+                label="Email Address"
+                type="email"
+                placeholder="Email"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+               
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email address",
+                  },
+                })}
+              />
+           
+            </div>
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <input
+                id="phone"
+                label="Phone Number"
+                placeholder="Phone Number"
+                type="text"
+                className="p-3 text-black rounded-l-md flex-1 border border-gray-300"
+                {...register("phone", { required: "Phone number is required" })}
+              />
+             
+            </div>
+          </div>
 
+          {/* Third Row */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex-1 mb-4 min-w-[200px]">
+              <textarea
+                id="message"
+                placeholder="Enter your message"
+               
+                {...register("message", { required: "Message is required" })}
+                className="w-full p-2 border rounded-md"
+                rows="5"
+              />
+             
+            </div>
+          </div>
 
-
-           <form>
-  {/* First Row */}
-  <div className="flex flex-wrap gap-4">
-
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="first_name"
-        label="First name"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="last_name"
-        label="Last name"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-  </div>
-
-  {/* Second Row */}
-  <div className="flex flex-wrap gap-4">
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="email"
-        label="Email address"
-        type="email"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-    <div className="flex-1 mb-4 min-w-[200px]">
-      <Input
-        id="mobile"
-        label="Phone number"
-        type="text"
-        disabled={isLoading}
-        register={register}
-        required
-      />
-    </div>
-  </div>
-
-  {/* Third Row */}
-  <div className="flex flex-wrap gap-4">
-
-<div className="flex-1 mb-4 min-w-[200px]">
-  <textarea
-    id="message"
-    label="Message"
-    disabled={isLoading}
-    {...register('message', { required: true })}
-    className="w-full p-2 border rounded-md"
-    rows="5"  // You can adjust the number of rows as needed
-    placeholder="Enter your message"
-  />
-</div>
-
-  </div>
-
- 
-
-
-  {/* Submit Button */}
-  <div className="mb-4">
-    <button
-      type="submit"
-      className="px-4 py-2 bg-blue-500 text-white rounded-md w-full"
-      disabled={isLoading}
-    >
-      {isLoading ? 'Submitting...' : 'Submit'}
-    </button>
-  </div>
-</form>
-
+          {/* Submit Button */}
+          <div className="mb-4">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-500 text-white rounded-md w-full"
+            
+            >
+              Submit
+            </button>
+          </div>
+        </form>
 
 
            
@@ -168,13 +170,13 @@ function ContactPage() {
   <p>Find us on</p>
   
   <div className="mt-4 space-x-4 flex justify-center items-center">
-    <a href="#" className="hover:text-gray-400 text-2xl">
+    <a href="https://www.facebook.com/vicmugenya" className="hover:text-gray-400 text-2xl">
       <BiLogoFacebook />
     </a>
-    <a href="#" className="hover:text-gray-400 text-2xl">
+    <a href="https://www.instagram.com/dianibeachrealty/profilecard/?igsh=MWhxY3FtaXc2Y2Fpeg==" className="hover:text-gray-400 text-2xl">
       <BiLogoInstagram />
     </a>
-    <a href="#" className="hover:text-gray-400 text-2xl">
+    <a href="https://www.tiktok.com/@b.mugen?_t=ZM-8siA6DSitC2&_r=1" className="hover:text-gray-400 text-2xl">
       <BiLogoTiktok />
     </a>
   </div>
