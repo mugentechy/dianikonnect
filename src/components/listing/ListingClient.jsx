@@ -122,8 +122,7 @@ const amenity = useMemo(() => {
 
 
 
-
-
+console.log(listing)
   return (
     <>
  <Container>
@@ -138,7 +137,7 @@ const amenity = useMemo(() => {
          <ListingHead
             title={listing['title']}
             imageSrc={imageSrcList}
-            locationValue={listing['location_value']}
+            locationValue={listing['location']}
             id={listing['id']}
             currentUser={currentUser}
           />
@@ -157,10 +156,10 @@ const amenity = useMemo(() => {
               amenity={amenity}
    
               description={listing['info']}
-              roomCount={listing['bedrooms']}
+              roomCount={listing['bedroom']}
               guestCount={listing['guest_count']}
-              bathroomCount={listing['bathrooms']}
-              locationValue={listing['location_value']}
+              bathroomCount={listing['bathroom']}
+              locationValue={listing['location']}
             />
             <div 
               className="

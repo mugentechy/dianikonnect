@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { FaCamera } from "react-icons/fa";
 import { FaFilm } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { LiaVectorSquareSolid } from "react-icons/lia";
+import { TbBathFilled } from "react-icons/tb";
+import { IoIosBed } from "react-icons/io";
+
 
 function ListingCard({
   data,
@@ -27,7 +31,7 @@ function ListingCard({
     <>
       <div 
         onClick={() => navigate(`/listing/${data?.id}`)} 
-        className="col-span-1 cursor-pointer group"
+        className="col-span-1 cursor-pointer group shadow-md"
       >
         <div className="flex flex-col gap-2 w-full">
           <div 
@@ -36,7 +40,8 @@ function ListingCard({
               w-full 
               relative 
               overflow-hidden 
-              rounded-xl
+              
+
             "
           >
             <img
@@ -54,7 +59,7 @@ function ListingCard({
               {/* Render the button with the dynamic status */}
 
 
-             <HeartButton listingId={data?.id} currentUser={currentUser} />
+             <HeartButton />
             </div>
             {/* Location at the bottom left */}
             <div className="absolute bottom-3 left-3  p-2 rounded-md shadow-md">
@@ -70,13 +75,13 @@ function ListingCard({
 
             {/* Right side buttons (photo and gallery) */}
             <div className="absolute bottom-3 right-3 flex gap-2">
-              <button className="bg-white p-2 rounded-full shadow-md flex items-center justify-center">
+              <button className="bg-white p-2  shadow-md flex items-center justify-center">
               <FaCamera className="w-6 h-6 text-gray-800" />
 
            
                 <span className="ml-1">3</span>
               </button>
-              <button className="bg-white p-2 rounded-full shadow-md flex items-center justify-center">
+              <button className="bg-white p-2  shadow-md flex items-center justify-center">
               <FaFilm className="w-6 h-6 text-gray-800"  />
                 <span className="ml-1">3</span>
               </button>
@@ -93,7 +98,7 @@ function ListingCard({
                 ${data?.price} <span className="text-sm">/Month</span>
               </div>*/}
               <h2 className="text-xl mt-1 font-semibold">
-                <a href={`/shop/${data?.title?.replace(/\s+/g, '-').toLowerCase()}`} className="hover:text-gray-300">
+                <a href={`/shop/${data?.title?.replace(/\s+/g, '-').toLowerCase()}`}>
                   {data?.title}
                 </a>
               </h2>
@@ -102,23 +107,50 @@ function ListingCard({
 
 
 <ul className="flex gap-6 mt-4 text-sm text-gray-600">
-  <li className="flex items-center gap-2">
-    <i className="flaticon-bed text-lg text-blue-500"></i>
-    <span>{data?.bedroom} Bedrooms</span>
+
+
+
+
+
+  <li className="flex flex-col items-start items-center gap-2">
+ 
+   <span className="flex items-center gap-2 text-lg">
+  {data?.bedroom}
+  <IoIosBed size={24} />
+</span>
+     <span>Bedrooms</span>
   </li>
-  <li className="flex items-center gap-2">
-    <i className="flaticon-clean text-lg text-green-500"></i>
-    <span>{data?.bathroom} Bathrooms</span>
+
+
+
+ <div className="h-10 border-l border-gray-300"></div>
+
+  <li className="flex flex-col items-start items-center gap-2">
+ 
+   <span className="flex items-center gap-2 text-lg">
+  {data?.bathroom || 3450}
+  <TbBathFilled size={24} />
+</span>
+     <span> Bathrooms</span>
   </li>
-  <li className="flex items-center gap-2">
-    <i className="flaticon-square-shape-design-interface-tool-symbol text-lg text-orange-500"></i>
-    <span>{data?.squareFeet || 0} sq ft</span>
+
+ <div className="h-10 border-l border-gray-300"></div>
+
+
+
+  <li className="flex flex-col items-start items-center gap-2 text-lg">
+ 
+   <span className="flex items-center gap-2">
+  {data?.squareFeet || 3450}
+  <LiaVectorSquareSolid size={24} />
+</span>
+     <span>square ft</span>
   </li>
 </ul>
 
+<hr className="my-2 border-l border-gray-300" />
 
-
-  <div className="flex items-center justify-between mt-3">
+  <div className="flex items-center justify-between m-2">
   {/* Agent Information */}
   <div className="flex items-center gap-2">
     <div className="w-8 h-8 rounded-full overflow-hidden">
@@ -130,7 +162,7 @@ function ListingCard({
     </div>
     <div>
       <h6 className="font-semibold text-sm">
-        <a href="/team-details" className="hover:text-gray-300">
+        <a href="/team-details">
           {data?.agentName || "Victor M."}
         </a>
       </h6>
@@ -138,11 +170,11 @@ function ListingCard({
     </div>
   </div>
   {/* Heart Button */}
-   <button className="bg-red p-2 shadow-md flex items-center justify-center">
+   <button className="bg-blue-500 p-2 shadow-md flex items-center justify-center">
           
 
            
-                <span className="ml-1">{statusLabel}</span>
+                <span className="ml-1 text-white">{statusLabel}</span>
               </button>
 
 

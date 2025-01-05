@@ -16,7 +16,7 @@ function HeartButton({
   return (
     <>
     <div 
-    onClick={toggleFavorite}
+
       className="
         relative
         hover:opacity-80

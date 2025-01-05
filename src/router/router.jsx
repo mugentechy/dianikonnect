@@ -28,20 +28,6 @@ import Footer from  '../components/footer'
 
 function Router() {
 
-const { user } = useAuthListener()
-
-
-const dispatch = useDispatch();
-const { listings,isLoading } = useSelector((state) => state.listings)
-
-  useEffect(() => {
-    dispatch(getListingsAsync())
-    if (user?.user_id) {
-      dispatch(getCurrentUserAsync(user.user_id));
-    }
-  }, [dispatch, user]);
-
-
 
   return (
     <>

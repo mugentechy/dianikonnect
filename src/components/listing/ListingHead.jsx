@@ -13,9 +13,7 @@ function ListingHead({
   currentUser
 }) {
  
-  const { getByValue } = useCountries();
 
-  const location = getByValue(locationValue);
 
   const [selectedImage, setSelectedImage] = useState(0);
 
@@ -23,14 +21,14 @@ function ListingHead({
     setSelectedImage(selectedIndex);
   };
 
-  console.log(imageSrc[0])
+
 
 
   return (
     <>
       <Heading
         title={title}
-        subtitle={location}
+        subtitle={locationValue}
       />
 <div
   className="

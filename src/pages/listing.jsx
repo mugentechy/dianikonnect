@@ -9,18 +9,12 @@ import { listings } from "../utils/data";
 function ListingPage() {
 
   let { id } = useParams()
-const dispatch = useDispatch();
+
 
  const listing = listings.find((item) => item.id === parseInt(id, 10));
 
  const { currentUser } = useSelector((state) => state.currentUser)
 
-    useEffect(() => {
-       
-       
-         dispatch(getReservationAsync(id))
-  
-    },[])
 
   return (
     <>

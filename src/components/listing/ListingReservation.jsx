@@ -25,14 +25,11 @@ function ListingReservation({
         overflow-hidden
       "
     >
-      <div className="
-      flex flex-row items-center gap-1 p-4">
-        <div className="text-2xl font-semibold">
-          $ {price}
-        </div>
-        <div className="font-light text-neutral-600">
-          night
-        </div>
+      <div className="gap-1 p-4 text-center">
+        <span className="text-2xl text-center font-semibold">
+          Make a Reservation
+        </span>
+      
       </div>
       <hr />
       <Calendar
@@ -50,24 +47,7 @@ function ListingReservation({
         />
       </div>
       <hr />
-      <div 
-        className="
-          p-4 
-          flex 
-          flex-row 
-          items-center 
-          justify-between
-          font-semibold
-          text-lg
-        "
-      >
-        <div>
-          Total
-        </div>
-        <div>
-          $ {totalPrice}
-        </div>
-      </div>
+    
     </div>
     </>
   )
