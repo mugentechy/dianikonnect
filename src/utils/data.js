@@ -879,5 +879,97 @@ To the left is the modern kitchen with central island, leading through to the un
     inCart: false,
     count: 0,
     total: 0,
+  },{
+    id: 30,
+    title: 'LUXURY 3BEDROOMS VILLA',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735923108/30/289566751_3131602000447229_2989582989183027724_n_mvalw1.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735923115/30/288628845_3131602257113870_8827239414485849340_n_lcmdh2.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735923109/30/289964258_3131601917113904_8774924149233836582_n_tqgjam.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1735846582/29/289313824_3131609177113178_1409420258382340939_n_ckwzhh.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735923109/30/289329834_3131602037113892_3440409714487188471_n_ffb5uu.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735923107/30/289270945_3131602090447220_5151266901823722603_n_suvznq.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735923107/30/289125746_3131602183780544_2418056649979299219_n_e3jcrt.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1735923107/30/289270945_3131602090447220_5151266901823722603_n_suvznq.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'MALINDI',
+    bathroom: '3',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },{
+    id: 31,
+    title: 'LUXURY 5BEDROOMS VILLA',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736182003/31/289824554_3130816240525805_1666009846667797317_n_leicwg.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736181956/31/288321708_3130817503859012_8180638596543568221_n_yisrkr.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736181957/31/289163026_3130817213859041_3606256546581815482_n_duqujz.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736181957/31/289092563_3130817460525683_8095694222520885318_n_mcbv8t.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736181957/31/288860818_3130817373859025_3267566325709839623_n_q4jg2k.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736181957/31/289060350_3130816347192461_8529053604162147698_n_brvq30.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736181958/31/289247626_3130817323859030_7502464595885119459_n_i1oudd.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736182003/31/289434070_3130817417192354_1571122610920691829_n_hybzhh.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736181957/31/289121012_3130817117192384_8774317269076412568_n_zugqob.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'Diani',
+    bathroom: '3',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },{
+    id: 32,
+    title: 'STUDIO apartment for 2 pax',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736182819/32/289595482_3130805980526831_3008441062272566192_n_wlq4mv.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736182818/32/289367623_3130806537193442_7541293616665539280_n_hrsyrq.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736182820/32/289606849_3130806513860111_6408500296103761076_n_qnpzc8.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736182821/32/289797383_3130806627193433_8737233091838403140_n_km0pte.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736182772/32/288959056_3130806600526769_5369151763583498760_n_xbpohs.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736182804/32/289045900_3130806020526827_6573321119419876671_n_rinn24.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'Diani',
+    bathroom: '3',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
   },
 ];
