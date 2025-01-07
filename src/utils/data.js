@@ -971,5 +971,34 @@ To the left is the modern kitchen with central island, leading through to the un
     inCart: false,
     count: 0,
     total: 0,
+  },{
+    id: 33,
+    title: 'CHARMING 3BEDEOOMS BEACH FRONT VILLA',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736270429/33/278779210_3084847338456029_3446630629298822290_n_qwzu4n.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736270362/33/278954813_3084847481789348_372725983198642343_n_bsmvkr.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736270448/33/278972207_3084847921789304_1448614960688376913_n_a60e9h.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736270434/33/278755949_3084847688455994_312912970491441705_n_agq9zp.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736270412/33/278771107_3084847735122656_2008463571156084943_n_j635zz.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736270435/33/278827373_3084847975122632_7485101522136438210_n_cwc4wj.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'WATAMU',
+    bathroom: '3',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
   },
 ];
