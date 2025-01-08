@@ -1001,4 +1001,33 @@ To the left is the modern kitchen with central island, leading through to the un
     count: 0,
     total: 0,
   },
+  {
+    id: 34,
+    title: '4BEDROOMS VILLA',
+    images: [
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736365556/34/278880092_3084843761789720_3849238311382858646_n_jalsmi.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736365572/34/278371337_3084844595122970_2168100738793360469_n_nnzqbs.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736365515/34/278880114_3084844235123006_5281935705447301234_n_j9ubko.jpg',
+      'https://res.cloudinary.com/doammcpie/image/upload/v1736365516/34/278388143_3084844338456329_3166806056712553108_n_eqk6n9.jpg',
+       'https://res.cloudinary.com/doammcpie/image/upload/v1736365489/34/278611053_3084844265123003_5305603176602025126_n_bfpu0q.jpg'
+    ],
+    price: 'Contact for pricing', // Pricing not directly applicable
+    category: 'property',
+    bedroom: '4',
+    location:'WATAMU',
+    bathroom: '3',
+    subject: 'Holiday Home',
+    info: `Our new listing in Watamu Beach is still available for Xmas/New Year! 💯
+
+- Fully Furnished
+- Self Catering
+- En suite rooms
+- WiFi
+- 📺
+- Swimming pool
+☎ 0725832454 / 0780603362 for booking!`,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },
 ];
