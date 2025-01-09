@@ -169,13 +169,6 @@ function ListingCard({
       <small className="text-xs">Property Seller</small>
     </div>
   </div>
-  {/* Heart Button */}
-   <button className="bg-blue-500 p-2 shadow-md flex items-center justify-center">
-          
-
-           
-                <span className="ml-1 text-white">{statusLabel}</span>
-              </button>
 
 
 </div>
